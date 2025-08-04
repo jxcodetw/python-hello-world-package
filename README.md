@@ -1,3 +1,4 @@
+# python-hello-world-package
 This absurdly simple hello world package exists only to learn and play with all the new Python tooling that’s hard to keep up with. I'm pretty sure it's going to be out-dated again very soon :P.
 
 # Development
