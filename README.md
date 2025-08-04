@@ -1,4 +1,6 @@
 # python-hello-world-package
+[![Build](https://github.com/jxcodetw/python-hello-world-package/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/jxcodetw/python-hello-world-package/actions/workflows/main.yml)
+
 This absurdly simple hello world package exists only to learn and play with all the new Python tooling that’s hard to keep up with. I'm pretty sure it's going to be out-dated again very soon :P.
 
 # Development
