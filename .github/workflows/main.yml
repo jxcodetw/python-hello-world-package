@@ -102,4 +102,4 @@ jobs:
       - name: Run Test & Coverage
         run: |
           . .venv/bin/activate
-          uv run pytest --cov=hello_world --cov-report=html
+          pytest --cov=hello_world --cov-report=html
