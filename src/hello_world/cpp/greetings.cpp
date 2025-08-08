@@ -8,6 +8,6 @@ void say_hello() {
     std::cout << "Hello, pybind11!" << std::endl;
 }
 
-PYBIND11_MODULE(greeting, m) {
+PYBIND11_MODULE(greetings, m) {
     m.def("say_hello", &say_hello, "A function which says hello");
 }
