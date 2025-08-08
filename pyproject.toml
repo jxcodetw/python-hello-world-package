@@ -15,9 +15,6 @@ build-backend = "scikit_build_core.build"
 [tool.scikit-build]
 wheel.packages = ["src/hello_world"]
 
-[tool.setuptools.packages.find]
-where = ["src"]
-
 [project.optional-dependencies]
 dev = [
     "mypy>=1.17.1",
