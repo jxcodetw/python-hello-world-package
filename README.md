@@ -5,7 +5,7 @@ This absurdly simple hello world package exists only to learn and play with all 
 
 # Development
 ```shell
-uv sync # Install dependencies and the package in editable mode
+uv sync --extra dev # Install dependencies and the package in editable mode
 
 uv run pytest # Run all unit tests
 uv run pytest --cov=hello_world # Report coverage in terminal
