@@ -7,6 +7,8 @@ This absurdly simple hello world package exists only to learn and play with all 
 ```shell
 uv sync --extra dev # Install dependencies and the package in editable mode
 
+uv pip install -e . # Recompile again and install editable package
+
 uv run pytest # Run all unit tests
 uv run pytest --cov=hello_world # Report coverage in terminal
 uv run pytest --cov=hello_world --cov-report=html # generate htmlcov
