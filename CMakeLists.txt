@@ -3,4 +3,4 @@ project(hello_world_pybind11)
 
 find_package(pybind11 REQUIRED)
 
-add_subdirectory(src/hello_world/cpp)
+add_subdirectory(src/cpp)

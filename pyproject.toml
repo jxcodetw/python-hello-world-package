@@ -14,6 +14,7 @@ build-backend = "scikit_build_core.build"
 
 [tool.scikit-build]
 wheel.packages = ["src/hello_world"]
+wheel.exclude = ["*.cpp", "CMakeLists.txt"]
 
 [project.optional-dependencies]
 dev = [
