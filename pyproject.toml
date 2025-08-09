@@ -9,11 +9,12 @@ dependencies = [
 ]
 
 [build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+requires = ["scikit-build-core", "pybind11"]
+build-backend = "scikit_build_core.build"
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.scikit-build]
+wheel.packages = ["src/hello_world"]
+wheel.exclude = ["*.cpp", "CMakeLists.txt"]
 
 [project.optional-dependencies]
 dev = [

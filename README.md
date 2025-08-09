@@ -5,22 +5,21 @@ This absurdly simple hello world package exists only to learn and play with all 
 
 # Development
 ```shell
-uv sync # Install dependencies and the package in editable mode
+uv sync --extra dev # Install dependencies and the package in editable mode
+
+uv pip install -e . # Recompile again and install editable package
 
 uv run pytest # Run all unit tests
 uv run pytest --cov=hello_world # Report coverage in terminal
 uv run pytest --cov=hello_world --cov-report=html # generate htmlcov
+```
 
-# Lint src and tests
+# Pre-Commit Checks
+```shell
 uv run ruff check src tests 
-
-# Type check the 'src' directory (try 'tests' too and see what explodes)
-uv run mypy src # Maybe ruff will save us from MyPy someday
-
-# Show formatting differences without applying them
+uv run mypy src
 uv run ruff format --diff
-# Automatically format code
-uv run ruff format
+uv run pytest
 ```
 
 # Build the Wheel Package
