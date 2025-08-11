@@ -49,7 +49,7 @@ jobs:
       - name: Upload HTML coverage report
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-html
+          name: coverage-html-uv
           path: htmlcov/
 
   quality-pip:
@@ -111,5 +111,5 @@ jobs:
       - name: Upload HTML coverage report
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-html
+          name: coverage-html-pip
           path: htmlcov/
