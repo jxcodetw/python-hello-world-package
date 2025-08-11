@@ -46,6 +46,11 @@ jobs:
         run: uv sync --extra dev
       - name: Run Test & Coverage
         run: uv run pytest --cov=hello_world --cov-report=html
+      - name: Upload HTML coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-html
+          path: htmlcov/
 
   quality-pip:
     name: Code Quality (pip)
@@ -103,3 +108,8 @@ jobs:
         run: |
           . .venv/bin/activate
           pytest --cov=hello_world --cov-report=html
+      - name: Upload HTML coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-html
+          path: htmlcov/
