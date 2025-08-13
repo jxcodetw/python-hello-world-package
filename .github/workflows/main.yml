@@ -11,9 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        container: [python:3.12, python:3.13]
+        image:
+          - name: python:3.12
+            label: py3.12
+          - name: python:3.13
+            label: py3.13
     container:
-      image: ${{ matrix.container }}
+      image: ${{ matrix.image.name }}
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -34,9 +38,13 @@ jobs:
     needs: quality-uv
     strategy:
       matrix:
-        container: [python:3.12, python:3.13]
+        image:
+          - name: python:3.12
+            label: py3.12
+          - name: python:3.13
+            label: py3.13
     container:
-      image: ${{ matrix.container }}
+      image: ${{ matrix.image.name }}
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -46,15 +54,24 @@ jobs:
         run: uv sync --extra dev
       - name: Run Test & Coverage
         run: uv run pytest --cov=hello_world --cov-report=html
+      - name: Upload HTML coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-html-uv-${{ matrix.image.label }}
+          path: htmlcov/
 
   quality-pip:
     name: Code Quality (pip)
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        container: [python:3.12, python:3.13]
+        image:
+          - name: python:3.12
+            label: py3.12
+          - name: python:3.13
+            label: py3.13
     container:
-      image: ${{ matrix.container }}
+      image: ${{ matrix.image.name }}
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -85,9 +102,13 @@ jobs:
     needs: quality-pip
     strategy:
       matrix:
-        container: [python:3.12, python:3.13]
+        image:
+          - name: python:3.12
+            label: py3.12
+          - name: python:3.13
+            label: py3.13
     container:
-      image: ${{ matrix.container }}
+      image: ${{ matrix.image.name }}
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -103,3 +124,8 @@ jobs:
         run: |
           . .venv/bin/activate
           pytest --cov=hello_world --cov-report=html
+      - name: Upload HTML coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-html-pip-${{ matrix.image.label }}
+          path: htmlcov/
